@@ -12,7 +12,7 @@ CREATE TABLE Usuarios (
 
 -- Tabla "Formulas"
 CREATE TABLE Formulas (
-  ID_formula INT PRIMARY KEY,
+  ID_formula INT PRIMARY KEY AUTO_INCREMENT,
   Descripcion VARCHAR(255),
   Fecha_creacion DATE,
   ID_usuario INT,
@@ -21,7 +21,7 @@ CREATE TABLE Formulas (
 
 -- Tabla "Ingredientes"
 CREATE TABLE Ingredientes (
-  ID_ingrediente INT PRIMARY KEY,
+  ID_ingrediente INT PRIMARY KEY AUTO_INCREMENT,
   Nombre_ingrediente VARCHAR(255),
   Descripcion VARCHAR(255),
   Unidad_medida VARCHAR(255),
@@ -30,7 +30,7 @@ CREATE TABLE Ingredientes (
 
 -- Tabla "Ingredientes_Formulas"
 CREATE TABLE Ingredientes_Formulas (
-  ID_ingrediente_formula INT PRIMARY KEY,
+  ID_ingrediente_formula INT PRIMARY KEY AUTO_INCREMENT,
   ID_formula INT,
   ID_ingrediente INT,
   Cantidad DECIMAL(10, 2),
@@ -40,7 +40,7 @@ CREATE TABLE Ingredientes_Formulas (
 
 -- Tabla "Inventario"
 CREATE TABLE Inventario (
-  ID_producto INT PRIMARY KEY,
+  ID_producto INT PRIMARY KEY AUTO_INCREMENT,
   Nombre_producto VARCHAR(255),
   Cantidad_disponible INT,
   Precio_unitario DECIMAL(10, 2),
@@ -51,7 +51,7 @@ CREATE TABLE Inventario (
 
 -- Tabla "Pedidos"
 CREATE TABLE Pedidos (
-  ID_pedido INT PRIMARY KEY,
+  ID_pedido INT PRIMARY KEY AUTO_INCREMENT,
   ID_cliente INT,
   ID_producto INT,
   Cantidad INT,
@@ -65,7 +65,7 @@ CREATE TABLE Pedidos (
 
 -- Tabla "Proveedores"
 CREATE TABLE Proveedores (
-  ID_proveedor INT PRIMARY KEY,
+  ID_proveedor INT PRIMARY KEY AUTO_INCREMENT,
   Nombre_proveedor VARCHAR(255),
   Direccion VARCHAR(255),
   Numero_telefono VARCHAR(255),
@@ -74,7 +74,7 @@ CREATE TABLE Proveedores (
 
 -- Tabla "Clientes"
 CREATE TABLE Clientes (
-  ID_cliente INT PRIMARY KEY,
+  ID_cliente INT PRIMARY KEY AUTO_INCREMENT,
   Nombre_cliente VARCHAR(255),
   Direccion VARCHAR(255),
   Numero_telefono VARCHAR(255),
@@ -83,7 +83,7 @@ CREATE TABLE Clientes (
 
 -- Tabla "Produccion"
 CREATE TABLE Produccion (
-  ID_produccion INT PRIMARY KEY,
+  ID_produccion INT PRIMARY KEY AUTO_INCREMENT,
   ID_formula INT,
   Cantidad_producida INT,
   Fecha_produccion DATE,
@@ -94,7 +94,7 @@ CREATE TABLE Produccion (
 
 -- Tabla "Ordenes_compra"
 CREATE TABLE Ordenes_compra (
-  ID_orden_compra INT PRIMARY KEY,
+  ID_orden_compra INT PRIMARY KEY ,
   ID_proveedor INT,
   Fecha_orden DATE,
   Estado VARCHAR(255),
