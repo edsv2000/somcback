@@ -1,9 +1,9 @@
 <?php
 class Conexion {
     private $host = 'localhost'; // Cambiar por la dirección del servidor de la base de datos
-    private $dbname = 'somc'; // Cambiar por el nombre de tu base de datos
-    private $usuario = 'root'; // Cambiar por el nombre de usuario de tu base de datos
-    private $contrasena = 'root'; // Cambiar por la contraseña de tu base de datos
+    private $dbname = 'habtekco_somc'; // Cambiar por el nombre de tu base de datos
+    private $usuario = 'habtekco_root'; // Cambiar por el nombre de usuario de tu base de datos
+    private $contrasena = 'WLlJ[CFnvQlx'; // Cambiar por la contraseña de tu base de datos
 
     protected $conexion;
 
