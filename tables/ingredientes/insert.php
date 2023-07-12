@@ -1,6 +1,6 @@
 <?php
 
-require_once 'config/conexion.php';
+require_once '../../config/conexion.php';
 
 // Obtener los datos del ingrediente en formato JSON
 $json = file_get_contents('php://input');
