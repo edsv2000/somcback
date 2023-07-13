@@ -25,7 +25,8 @@ CREATE TABLE Ingredientes (
   Nombre_ingrediente VARCHAR(255),
   Descripcion VARCHAR(255),
   Unidad_medida VARCHAR(255),
-  Proveedor VARCHAR(255)
+  Proveedor VARCHAR(255),
+  
 );
 
 -- Tabla "Ingredientes_Formulas"
