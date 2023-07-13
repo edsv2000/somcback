@@ -39,16 +39,6 @@ CREATE TABLE Ingredientes_Formulas (
   FOREIGN KEY (ID_ingrediente) REFERENCES Ingredientes(ID_ingrediente)
 );
 
--- Tabla "Inventario"
-CREATE TABLE Inventario (
-  ID_producto INT PRIMARY KEY AUTO_INCREMENT,
-  Nombre_producto VARCHAR(255),
-  Cantidad_disponible INT,
-  Precio_unitario DECIMAL(10, 2),
-  Fecha_creacion DATE,
-  ID_usuario INT,
-  FOREIGN KEY (ID_usuario) REFERENCES Usuarios(ID_usuario)
-);
 
 -- Tabla "Pedidos"
 CREATE TABLE Pedidos (

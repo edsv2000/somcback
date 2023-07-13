@@ -11,7 +11,9 @@ if (
     isset($data['nombre_ingrediente']) &&
     isset($data['descripcion']) &&
     isset($data['unidad_medida']) &&
-    isset($data['proveedor'])
+    isset($data['proveedor']) &&
+    isset($data['cantidad']) &&
+    isset($data['precio_unitario'])
 ) {
     // Crear una instancia de la clase de conexión
     $conexion = new Conexion();
@@ -27,10 +29,12 @@ if (
     $descripcion = $data['descripcion'];
     $unidad_medida = $data['unidad_medida'];
     $proveedor = $data['proveedor'];
+    $cantidad = $data['cantidad'];
+    $precio_unitario = $data['precio_unitario'];
     
     // Preparar la consulta SQL para insertar el ingrediente
-    $sql = "INSERT INTO Ingredientes (Nombre_ingrediente, Descripcion, Unidad_medida, Proveedor)
-            VALUES ('$nombre_ingrediente', '$descripcion', '$unidad_medida', '$proveedor')";
+    $sql = "INSERT INTO Ingredientes (Nombre_ingrediente, Descripcion, Unidad_medida, Proveedor, Cantidad, Precio_unitario)
+            VALUES ('$nombre_ingrediente', '$descripcion', '$unidad_medida', '$proveedor', '$cantidad', '$precio_unitario')";
     
     // Ejecutar la consulta SQL
     if ($conn->query($sql) === TRUE) {
