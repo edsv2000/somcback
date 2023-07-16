@@ -29,6 +29,9 @@ if (
     $puesto = $data['puesto'];
     $correo_electronico = $data['correo_electronico'];
     $numero_telefono = $data['numero_telefono'];
+
+    //Encriptacion
+    $contrasena = password_hash($contrasena, PASSWORD_DEFAULT);
     
     // Preparar la consulta SQL para insertar el usuario
     $sql = "INSERT INTO Usuarios (Nombre_usuario, Contrasena, Puesto, Correo_electronico, Numero_telefono, Fecha_creacion, Ultimo_inicio_sesion)
