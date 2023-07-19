@@ -44,15 +44,40 @@ CREATE TABLE Ingredientes_Formulas (
 CREATE TABLE Pedidos (
   ID_pedido INT PRIMARY KEY AUTO_INCREMENT,
   ID_cliente INT,
-  ID_producto INT,
-  Cantidad INT,
   Fecha_pedido DATE,
   Estado VARCHAR(255),
   ID_usuario INT,
   FOREIGN KEY (ID_cliente) REFERENCES Clientes(ID_cliente),
-  FOREIGN KEY (ID_producto) REFERENCES Inventario(ID_producto),
   FOREIGN KEY (ID_usuario) REFERENCES Usuarios(ID_usuario)
 );
+
+-- Tabla "Detalles_pedido"
+CREATE TABLE Detalles_pedido (
+  ID_detalle INT PRIMARY KEY AUTO_INCREMENT,
+  ID_pedido INT,
+  ID_formula INT,
+  Cantidad INT,
+  FOREIGN KEY (ID_pedido) REFERENCES Pedidos(ID_pedido),
+  FOREIGN KEY (ID_formula) REFERENCES Formulas(ID_formula)
+);
+
+-- Tabla "Produccion"
+CREATE TABLE `Produccion` (
+  `ID_produccion` int NOT NULL,
+  `ID_formula` int DEFAULT NULL,
+  `Cantidad_producida` int DEFAULT NULL,
+  `Fecha_produccion` date DEFAULT NULL,
+  `ID_usuario` int DEFAULT NULL,
+  `ID_pedido` int DEFAULT NULL,
+  PRIMARY KEY (`ID_produccion`),
+  UNIQUE KEY `ID_pedido` (`ID_pedido`),
+  KEY `ID_formula` (`ID_formula`),
+  KEY `ID_usuario` (`ID_usuario`),
+  CONSTRAINT `produccion_ibfk_1` FOREIGN KEY (`ID_formula`) REFERENCES `Formulas` (`ID_formula`),
+  CONSTRAINT `produccion_ibfk_2` FOREIGN KEY (`ID_usuario`) REFERENCES `Usuarios` (`ID_usuario`),
+  CONSTRAINT `producción_ibfk_3` FOREIGN KEY (`ID_pedido`) REFERENCES `Pedidos` (`ID_pedido`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) 
+
 
 -- Tabla "Proveedores"
 CREATE TABLE Proveedores (
@@ -72,16 +97,8 @@ CREATE TABLE Clientes (
   Correo_electronico VARCHAR(255)
 );
 
--- Tabla "Produccion"
-CREATE TABLE Produccion (
-  ID_produccion INT PRIMARY KEY AUTO_INCREMENT,
-  ID_formula INT,
-  Cantidad_producida INT,
-  Fecha_produccion DATE,
-  ID_usuario INT,
-  FOREIGN KEY (ID_formula) REFERENCES Formulas(ID_formula),
-  FOREIGN KEY (ID_usuario) REFERENCES Usuarios(ID_usuario)
-);
+
+
 
 -- Tabla "Ordenes_compra"
 CREATE TABLE Ordenes_compra (
